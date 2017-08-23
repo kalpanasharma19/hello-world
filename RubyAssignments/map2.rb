@@ -9,3 +9,12 @@ array12= array1 + array2
 output_array= array12.map{|i| i*2}
 
 puts "#{array1}, #{array2} \n #{array12} \n #{output_array}"
+
+=begin
+output :
+
+[0, 1, 2, 3, 4, 5], ["h", "i"] 
+ [0, 1, 2, 3, 4, 5, "h", "i"] 
+ [0, 2, 4, 6, 8, 10, "hh", "ii"]
+
+=end
