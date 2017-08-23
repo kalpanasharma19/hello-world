@@ -1,36 +1,47 @@
 #!user/bin/ruby
 
 
-array1 =Array.new(5) {|e| e = e*10+1 }
+array1 =Array.new(5) { |e| e = e * 10 + 1 }
 array2 =Array(0..9)
 array3=["Hello", "World"]
-array4=Array.new(4,"Names")
+array4=Array.new(4, "Names")
 
-def combine (arr1,arr2)
-combine_array = Array.new
+def combine (arr1, arr2)
+	combine_array = Array.new
 
- (0..arr1.size-1). each do |i|
+	(0..arr1.size - 1). each do |i|
 	
-	 combine_array[i] = arr1[i]
- end
+	  combine_array[i] = arr1[i]
+  end
  
- (arr1.size..arr1.size+arr2.size-1).each do |i|
+  (arr1.size..arr1.size + arr2.size - 1).each do |i|
  
-	 combine_array[i] = arr2[i-arr1.size]
- end
+	  combine_array[i] = arr2[i - arr1.size]
+  end
  
- return combine_array
+  return combine_array
  
 end
 
-combined_array = combine(array1,array2)
-puts "#{array1}, #{array2} \n #{combined_array}"
+combined_array = combine(array1, array2)
+puts " First Array is : \n #{array1} \n\n Second Array is : \n #{array2} \n\n Combined Array is : \n #{combined_array}"
 
 #puts "#{x}, #{y} \n #{c}"
 #puts "#{arr1}, #{x} \n #{c}"
 
+puts "\n"
+
 =begin
 output :
-[1, 11, 21, 31, 41], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+
+ First Array is : 
+ [1, 11, 21, 31, 41] 
+
+ Second Array is : 
+ [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] 
+
+ Combined Array is : 
  [1, 11, 21, 31, 41, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
 =end
