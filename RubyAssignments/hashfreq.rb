@@ -8,3 +8,9 @@ array.each { |i| result[i] += 1 }
 
 puts result
 
+=begin
+output:
+
+{1=>2, 2=>2, 3=>1, 4=>5, 5=>2, 6=>2, 7=>2, 8=>2, 9=>3, 0=>2}
+
+=end
