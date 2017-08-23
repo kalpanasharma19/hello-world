@@ -3,17 +3,17 @@
 
 class Pattern
   def print_star(n)
-	for i in 0...n
-		for j in 0...n
-			if i >= j
-				print "*"
-			else
-				print " "
-			end
-		end
-		print "\n"
+    for i in 0...n
+      for j in 0...n
+        if i >= j
+	  print "*"
+	else
+	  print " "
 	end
-   end
+      end
+	print "\n"
+    end
+  end
 end
 
 p = Pattern.new
