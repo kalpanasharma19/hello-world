@@ -1,5 +1,5 @@
 # hello-world
-#Hi,
+#Hi
 #I am kalpana sharma
 #I work with techracers
-#Thanku you
+#Thank you
