@@ -2,10 +2,12 @@
 
 puts "This is main Ruby Program"
 
-END {
-puts "last code"
+END 
+{
+  puts "last code"
 }
 
-BEGIN {
-puts " first code "
+BEGIN 
+{
+  puts " first code "
 }
