@@ -3,17 +3,28 @@
 array1 =Array.new(5) { |e| e = e * 10 + 1 }
 array2 =Array(0..9)
 array3 =Array.new(4, "mac")
-combine_array= Array.new
 
-combine_array = array1 + array2 + array3
+class Join_array
+  def combine(array1, array2, array3)
 
-puts " First Array is : \n #{array1} \n\n Second Array is : \n #{array2} \n\n Third Array is : \n #{array3} \n\n Combined Array is : \n #{combine_array}"
+    combine_array= Array.new
 
+    combine_array = array1 + array2 + array3
+
+    puts " First Array is : \n #{array1} \n\n Second Array is : \n #{array2} \n\n Third Array is : \n #{array3} \n\n Combined Array is : \n #{combine_array} "
+
+  end
+end
+
+joined_array = Join_array.new
+joined_array.combine(array1, array2, array3)
+
+puts "\n"
 
 =begin
 output:
 
-First Array is : 
+ First Array is : 
  [1, 11, 21, 31, 41] 
 
  Second Array is : 

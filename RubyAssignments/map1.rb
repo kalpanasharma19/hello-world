@@ -3,9 +3,7 @@
 sample_array = Array(0...6)
 
 class Mapping
-	def map_array(arr)
-
-		array = arr
+	def map_array(array)
 
 		puts " Sample array is : #{array} "
 

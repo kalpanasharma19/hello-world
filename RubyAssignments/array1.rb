@@ -3,8 +3,6 @@
 
 array1 =Array.new(5) { |e| e = e * 10 + 1 }
 array2 =Array(0..9)
-array3=["Hello", "World"]
-array4=Array.new(4, "Names")
 
 class Join_array
   def combine (arr1, arr2)
@@ -26,12 +24,6 @@ end
 
 combined_array  = Join_array.new
 combined_array.combine(array1, array2)
-
-
-
-# pass another arrays as parameters
-#puts "#{x}, #{y} \n #{c}"
-#puts "#{arr1}, #{x} \n #{c}"
 
 puts "\n"
 

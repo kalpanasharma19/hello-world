@@ -1,12 +1,23 @@
 #!user/bin/ruby
 
-array = [1,2,3,2,1,4,5,4,4,4,6,7,8,9,0,7,0,8,9,9,5,6,4]
+sample_array = [1,2,3,2,1,4,5,4,4,4,6,7,8,9,0,7,0,8,9,9,5,6,4]
 
-result = Hash.new(0)
+class Frequency_of_array
+  def chek_frequency (array)
 
-array.each { |i| result[i] += 1 } 
+    result = Hash.new(0)
 
-puts result
+    array.each { |i| result[i] += 1 } 
+
+    puts result
+  end
+
+end
+
+array1 = Frequency_of_array.new
+array1.chek_frequency (sample_array)
+
+puts "\n"
 
 =begin
 output:
