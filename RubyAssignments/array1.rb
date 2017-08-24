@@ -6,26 +6,30 @@ array2 =Array(0..9)
 array3=["Hello", "World"]
 array4=Array.new(4, "Names")
 
-def combine (arr1, arr2)
-	combine_array = Array.new
+class Join_array
+  def combine (arr1, arr2)
+  combine_array = Array.new
 
-	(0..arr1.size - 1). each do |i|
+    (0..arr1.size - 1). each do |i|
 	
-	  combine_array[i] = arr1[i]
+      combine_array[i] = arr1[i]
+    end
+ 
+    (arr1.size..arr1.size + arr2.size - 1).each do |i|
+
+      combine_array[i] = arr2[i - arr1.size]
+    end
+ 
+    puts " First Array is : \n #{arr1} \n\n Second Array is : \n #{arr2} \n\n Combined Array is : \n #{combine_array}"
   end
- 
-  (arr1.size..arr1.size + arr2.size - 1).each do |i|
- 
-	  combine_array[i] = arr2[i - arr1.size]
-  end
- 
-  return combine_array
- 
 end
 
-combined_array = combine(array1, array2)
-puts " First Array is : \n #{array1} \n\n Second Array is : \n #{array2} \n\n Combined Array is : \n #{combined_array}"
+combined_array  = Join_array.new
+combined_array.combine(array1, array2)
 
+
+
+# pass another arrays as parameters
 #puts "#{x}, #{y} \n #{c}"
 #puts "#{arr1}, #{x} \n #{c}"
 

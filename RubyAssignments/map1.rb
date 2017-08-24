@@ -9,7 +9,7 @@ class Mapping
 
 		puts " Sample array is : #{array} "
 
-		output_array= array.map { |i| i * 2}
+		output_array= array.map { |i| i * 2 }
 
     puts " Output array is : #{output_array}"
 
