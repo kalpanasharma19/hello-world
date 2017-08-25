@@ -104,6 +104,24 @@ class TaxCalculator
   
   def print_bill()
     require "csv"
+    
+    def round_nearest(number)
+      x1 = (number.round(2) * 100).to_i
+      integer_part = (x1 / 100).to_i     # take the integer part of number
+      decimal_part =  x1 % 100           # take the decimal part of number
+      second_digit_decimal_part= decimal_part % 10 
+          
+      decimal_part -= second_digit_decimal_part
+
+      if second_digit_decimal_part > 5 
+        second_digit_decimal_part = 10
+      elsif  second_digit_decimal_part != 0
+        second_digit_decimal_part = 5
+      end
+
+      number = integer_part + (((decimal_part + second_digit_decimal_part) % 100 ).to_f ) / 100
+      return number
+    end
 
     total_sale_tax = 0
     total_price_of_all_products = 0
@@ -116,13 +134,13 @@ class TaxCalculator
 
       total_price_of_product = (row[1].to_f + row[3].to_f) * row[2].to_f
      
-      puts " #{row[2]} #{row[0]}: #{total_price_of_product.round(2)} \n"
+      puts " #{row[2]} #{row[0]}: #{round_nearest(total_price_of_product)} \n"
 
       total_sale_tax += row[2].to_f * row[3].to_f
-      total_price_of_all_products += total_price_of_product.round(2)
+      total_price_of_all_products += round_nearest(total_price_of_product)
       
     end
-    puts " Sales Taxes: #{total_sale_tax.round(2)} \n Total: #{total_price_of_all_products} \n"
+    puts " Sales Taxes: #{round_nearest(total_sale_tax)} \n Total: #{total_price_of_all_products} \n"
 
   end
   
@@ -160,10 +178,9 @@ Input 2:
 Output 2:
  Your Bill
  1 imported box of chocolates: 10.5 
- 1 imported bottle of perfume: 54.63 
- Sales Taxes: 7.63 
- Total: 65.13 
-
+ 1 imported bottle of perfume: 54.65 
+ Sales Taxes: 7.65 
+ Total: 65.15
 
 Input 3:
 1 imported bottle of perfume at 27.99
@@ -173,12 +190,12 @@ Input 3:
 
 Output 3:
  Your Bill
- 1 imported bottle of perfume: 32.19 
- 1 bottle of perfume: 20.89 
+ 1 imported bottle of perfume: 32.2 
+ 1 bottle of perfume: 20.9 
  1 packet of headache pills: 9.75 
- 1 imported box of chocolates: 11.81 
- Sales Taxes: 6.66 
- Total: 74.64 
+ 1 imported box of chocolates: 11.85 
+ Sales Taxes: 6.7 
+ Total: 74.7 
 
 
 =end
