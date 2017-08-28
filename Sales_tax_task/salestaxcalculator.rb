@@ -15,7 +15,7 @@ bill = SalesTaxCalculator::Bill.new
 bill.print_bill()
 
 =begin
-  
+
 Input 1:
 1 book at 12.49
 1 music CD at 14.99
@@ -23,11 +23,11 @@ Input 1:
 
 Output 1:
 Your Bill
- 1 book: 12.5 
- 1 music CD: 16.5 
- 1 chocolate bar: 0.85 
- Sales Taxes: 1.5 
- Total: 29.85 
+ 1 book: 12.5
+ 1 music CD: 16.5
+ 1 chocolate bar: 0.85
+ Sales Taxes: 1.5
+ Total: 29.85
 
 Input 2:
 1 imported box of chocolates at 10.00
@@ -35,9 +35,9 @@ Input 2:
 
 Output 2:
  Your Bill
- 1 imported box of chocolates: 10.5 
- 1 imported bottle of perfume: 54.65 
- Sales Taxes: 7.65 
+ 1 imported box of chocolates: 10.5
+ 1 imported bottle of perfume: 54.65
+ Sales Taxes: 7.65
  Total: 65.15
 
 Input 3:
@@ -48,12 +48,12 @@ Input 3:
 
 Output 3:
  Your Bill
- 1 imported bottle of perfume: 32.2 
- 1 bottle of perfume: 20.9 
- 1 packet of headache pills: 9.75 
- 1 box of imported chocolates: 11.85 
- Sales Taxes: 6.7 
- Total: 74.7 
+ 1 imported bottle of perfume: 32.2
+ 1 bottle of perfume: 20.9
+ 1 packet of headache pills: 9.75
+ 1 box of imported chocolates: 11.85
+ Sales Taxes: 6.7
+ Total: 74.7
 
-  
+
 =end
