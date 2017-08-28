@@ -5,8 +5,8 @@ module SalesTaxCalculator
 
     def calculate_tax()
 
-      CSV.open("saleTaxRecords.csv", "wb") do |csv|
-        CSV.foreach("saleRecords.csv") do |row|
+      CSV.open("sale_tax_records.csv", "wb") do |csv|
+        CSV.foreach("sale_records.csv") do |row|
 
           if_tax_free = find_taxfree_products(row[0])
           if_imported = find_imported_product(row[0])

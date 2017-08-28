@@ -19,7 +19,7 @@ module SalesTaxCalculator
 
     def get_input(input_array)
       require "csv"
-      CSV.open("saleRecords.csv", "wb") do |csv|
+      CSV.open("sale_records.csv", "wb") do |csv|
 
         input_array.each do | each_item |
           i_item = each_item.split

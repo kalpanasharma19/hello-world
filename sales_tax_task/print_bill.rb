@@ -9,7 +9,7 @@ module SalesTaxCalculator
 
       puts "\n Your Bill\n"
 
-      CSV.foreach("saleTaxRecords.csv") do |row|
+      CSV.foreach("sale_tax_records.csv") do |row|
 
 # row[0] => product name, row[1] => quantity of product, row[2] => product price, row[3] => sale tax
 
