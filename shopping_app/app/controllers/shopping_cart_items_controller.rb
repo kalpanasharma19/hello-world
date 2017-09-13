@@ -3,20 +3,27 @@ class ShoppingCartItemsController < ApplicationController
     @customer = current_customer
   end
   def new
-    @customer = Customer.find(params[:customer_id])
+    @customer = current_customer
     @product = Product.find(params[:product_id])
   end
+
   def create
     @customer = current_customer
     @shopping_cart_item = @customer.shopping_cart_items.create(shopping_cart_item_params)
-    if @shopping_cart_item.save
-       render 'show'
+    if@shopping_cart_item.save
+      redirect_to shopping_cart_items_show_path
     else
-      flash[:danger] = "error"
       render 'new'
     end
   end
 
+  def add_one
+    @shopping_cart_item = current_customer.shopping_cart_item.find(:product_id)
+    @shopping_cart_item.quantity += 1
+    if @shopping_cart_item.save
+      render 'show'
+    end
+  end
   def destroy
     @customer = current_customer
     @item = @customer.shopping_cart_items.find(params[:id])
@@ -26,6 +33,6 @@ class ShoppingCartItemsController < ApplicationController
 
   private
   def shopping_cart_item_params
-    params.require(:shopping_cart_item).permit(:product_id, :qunatity)
+    params.require(:shopping_cart_item).permit(:product_id, :quantity)
   end
 end
