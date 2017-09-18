@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
   attr_accessor :password, :password_confirmation
-  enum role: {admin: true, customer: false}
+  enum role: { admin: true, customer: false }
 
   has_many :delivery_addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
@@ -13,10 +13,10 @@ class Customer < ApplicationRecord
   validates_associated :shopping_cart_items
 
   validates :name, presence: true
-  validates :phone_number, presence: true, length: {is: 10}, format: { with: /\d[0-9]\)*\z/ , :message => "Only positive number without spaces are allowed" }
-  validates :password, confirmation: true, length: {minimum: 6}, allow_nil: true
+  validates :phone_number, presence: true, length: { is: 10 }, format: { with: /\d[0-9]\)*\z/ , :message => "Only positive number without spaces are allowed" }
+  validates :password, confirmation: true, length: { inimum: 6 }, allow_nil: true
 
-  validates_format_of :email, :with => /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
   before_save :encrypt_password
   after_save :clear_password
