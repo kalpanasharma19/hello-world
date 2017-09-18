@@ -6,5 +6,5 @@ class DeliveryAddress < ApplicationRecord
 
   validates :customer_id, presence: true
   validates :address, presence: true
-  validates :phone_number, presence: true, length: {minimum: 10}
+  validates :phone_number, presence: true, length: {is: 10}, format: { with: /\d[0-9]\)*\z/ , :message => "Only positive number without spaces are allowed" }
 end

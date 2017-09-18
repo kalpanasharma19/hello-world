@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    current_customer.role? rescue nil
+    current_customer.admin? rescue nil
   end
 
   protected

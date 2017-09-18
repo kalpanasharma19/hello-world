@@ -9,19 +9,15 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = current_customer.orders.create(order_params)
+    order = current_customer.orders.create(order_params)
 
     current_customer.shopping_cart_items.each do |item|
-      order_item = OrderItem.new
-      order_item.order = @order
-      order_item.product_id = item.product.id
-      order_item.price = item.product.price
-      order_item.quantity = item.quantity
+      order_item = add_order_item(item, order)
       order_item.save
       reduce_stock_quantity(item)
       item.destroy
     end
-    if @order.save
+    if order.save
       flash[:success] = "Order confirmed!"
       redirect_to products_path
     end
@@ -41,13 +37,8 @@ class OrdersController < ApplicationController
 
   def reduce_stock_quantity(item)
     @product = Product.find_by_id(item.product.id)
-    if @product.stock_quantity >= item.quantity
       @product.stock_quantity -= item.quantity
        @product.save
-    else
-      flash[:notice] = "Stock Quantity is less.."
-      redirect_to products_path
-    end
   end
 
   def valid_order
@@ -65,5 +56,14 @@ class OrdersController < ApplicationController
         redirect_to products_path
       end
     end
+  end
+
+  def add_order_item(item, order)
+    order_item = OrderItem.new
+    order_item.order = order
+    order_item.product_id = item.product.id
+    order_item.price = item.product.price
+    order_item.quantity = item.quantity
+    return order_item
   end
 end

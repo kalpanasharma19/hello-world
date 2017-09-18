@@ -2,9 +2,10 @@ class CustomersController < ApplicationController
   skip_before_action :authenticate_customer, only: [:new, :create]
   before_action :save_login_state, only: [:new, :create]
   before_action :valid_customer, except: [:index, :show]
+  before_action :check_admin, only: [:index]
 
   def index
-    @customers = Customer.all if is_admin?
+    @customers = Customer.all
   end
 
   def show
@@ -55,5 +56,9 @@ class CustomersController < ApplicationController
     return true if Customer.find_by(id: params[:id]) == current_customer
     flash[:alert] = "You can edit your details only!"
     redirect_to customers_path
+  end
+
+  def check_admin
+    redirect_to customer_path(current_customer) unless is_admin?
   end
 end

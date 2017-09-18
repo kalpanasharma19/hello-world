@@ -2,20 +2,14 @@ class DeliveryAddressesController < ApplicationController
   before_action :valid_customer
 
   def create
-    @customer = Customer.find_by(id: params[:customer_id])
-
-    @delivery_address = @customer.delivery_addresses.create(delivery_address_params)
-
-    redirect_to customer_path(@customer)
+    @delivery_address = current_customer.delivery_addresses.create(delivery_address_params)
+    redirect_to customer_path(current_customer)
   end
 
   def destroy
-    @customer = Customer.find_by(id: params[:customer_id])
-
-    @delivery_address = @customer.delivery_addresses.find_by(id: params[:id])
-
+    @delivery_address = current_customer.delivery_addresses.find_by(id: params[:id])
     @delivery_address.destroy
-    redirect_to customer_path(@customer)
+    redirect_to customer_path(current_customer)
   end
 
   private

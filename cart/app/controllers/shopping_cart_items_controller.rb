@@ -2,6 +2,9 @@ class ShoppingCartItemsController < ApplicationController
   def show
   end
 
+  def new
+  end
+
   def create
     selected_product = Product.find_by(id: params[:product_id])
 
